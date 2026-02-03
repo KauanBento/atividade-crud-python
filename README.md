@@ -1,2 +1,8 @@
-# atividade-crud-python
-Projeto acadêmico em Python que implementa um sistema CRUD completo via terminal, com persistência de dados em arquivo JSON, uso de listas e dicionários, menu interativo e tratamento básico de erros.
+## Tema escolhido
+Sistema de gerenciamento de restaurante
+
+## Funcionalidades principais
+Permite cadastrar, visualizar, editar e excluir alimentos do cardápio, armazenando informações como ingredientes e modo de preparo.
+
+## Descrição
+Sistema CRUD desenvolvido em Python para o gerenciamento de pratos de um restaurante. A aplicação funciona por meio de um menu interativo no terminal e utiliza listas e dicionários para manipulação dos dados, com persistência em arquivo JSON.

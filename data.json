@@ -1,0 +1,40 @@
+{
+  "ingredientes": [
+    {
+      "nome": "Pão",
+      "unidade_medida": "unidade",
+      "custo_unitario": 1.50
+    },
+    {
+      "nome": "Queijo",
+      "unidade_medida": "kl",
+      "custo_unitario": 20
+    },
+    {
+      "nome": "Óleo",
+      "unidade_medida": "l",
+      "custo_unitario": 10
+    }
+  ],
+  "alimentos": [
+    {
+      "nome": "Hambúrguer",
+      "ingredientes": [
+        {
+          "nome": "Pão",
+          "quantidade": 1
+        },
+        {
+          "nome": "Queijo",
+          "quantidade": 50
+        },
+        {
+          "nome": "Óleo",
+          "quantidade": 10
+        }
+      ],
+      "modo_preparo": "Grelha o hambúrguer, adiciona o queijo e finaliza com óleo.",
+      "preco_venda": 18.50
+    }
+  ]
+}
