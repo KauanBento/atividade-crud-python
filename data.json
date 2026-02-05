@@ -17,6 +17,12 @@
             "nome": "Óleo",
             "unidade_medida": "ml",
             "custo_unitario": 0.01
+        },
+        {
+            "id": 4,
+            "nome": "Frango",
+            "unidade_medida": "g",
+            "custo_unitario": 0.02
         }
     ],
     "receitas": [

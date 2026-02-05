@@ -262,6 +262,24 @@ def listar_ingredientes():
             f'Custo: R${ing["custo_unitario"]:.2f}'
         )
 
+
+def ler_ingredientes_id():
+    dados = carregar()
+    try:
+        id_busca = int(input('Digite o ID do ingrediente: '))
+    except ValueError:
+        print("Erro: ID deve ser um número inteiro!")
+        return
+
+    for ing in dados["ingredientes"]:
+        if ing["id"] == id_busca:
+            print('Ingrediente:')
+            print(f'ID: {ing["id"]} | Nome: {ing["nome"]} | Unidade de medida: {ing["unidade_medida"]} | Custo unitario: R${ing["custo_unitario"]}')
+            if not ing["ingredientes"]:
+                print("Sem ingrediente com esse ID listado!")
+
+    print('Erro: ID não encontrado.')
+
 def editar_ingrediente():
     dados = carregar()
 
@@ -370,14 +388,16 @@ while True:
     elif escolha == '2':
         while True:
             print(menu_ingredientes)
-            opcao_ingrediente = input('Escolha uma opção: ')
+            op = input('Escolha uma opção: ')
 
-            if opcao_ingrediente == '0':
+            if op == '0':
                 break
-            elif op == '':
+            elif op == '1':
                 cadastrar_ingrediente()
             elif op == '2':
                 listar_ingredientes()
+            elif op =='3':
+                ler_ingredientes_id()
             elif op == '4':
                 editar_ingrediente()
             elif op == '5':
