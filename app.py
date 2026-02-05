@@ -54,25 +54,23 @@ def criar_receita():
                     if ing["id"] == id_ing:
                         ing_encontrado = ing
                         break
-
+                
                 if ing_encontrado:
                     try:
-                        qtd_texto = input(
-                            f"Quantidade de {ing_encontrado['nome']} ({ing_encontrado['unidade_medida']}): ")
+                        qtd_texto = input(f"Quantidade de {ing_encontrado['nome']} ({ing_encontrado['unidade_medida']}): ")
                         qtd = int(qtd_texto)
-
                         ingredientes_da_receita.append({
-                            "id_ingrediente": id_ing,
-                            "quantidade": qtd
-                        })
-                        print("Ingrediente adicionado com sucesso!")
-
+                                "id_ingrediente": id_ing,
+                                "quantidade": qtd
+                            })
+                        print("Ingrediente adicionado!")
                     except ValueError:
                         print("Erro: A quantidade deve ser um número inteiro.")
                 else:
-                    print("Erro: ID de ingrediente não encontrado.")
+                    print("Erro: ID de ingrediente não encontrado na lista!")
+                    
             except ValueError:
-                print("Erro: Digite números válidos.")
+                print("Erro: Digite um número de ID válido.")
 
     modo_preparo = input('Modo de preparo: ').strip()
 
@@ -119,14 +117,14 @@ def listar_receitas():
         else:
             for item in receita["ingredientes"]:
                 ing_nome = ""
-                ing_unid = 0
+                ing_unid = ""
 
                 for ing in lista_ingrediente:
                     if ing["id"] == item["id_ingrediente"]:
                         ing_nome = ing["nome"]
                         ing_unid = ing["unidade_medida"]
                         break
-            print(f"  - {item['quantidade']} {ing_unid} de {ing_nome}")
+                print(f"  - {item['quantidade']} {ing_unid} de {ing_nome}")
 
         print(f'Preparo: {receita["modo_preparo"]}')
         print('-' * 40)
@@ -157,7 +155,7 @@ def ler_receita_id():
                             ing_nome = ing["nome"]
                             ing_unid = ing["unidade_medida"]
                             break
-                print(f"  - {item['quantidade']} {ing_unid} de {ing_nome}")
+                    print(f"  - {item['quantidade']} {ing_unid} de {ing_nome}")
 
             print(f'Preparo: {receita["modo_preparo"]}')
             return
@@ -220,6 +218,7 @@ def deletar_receita():
 
 def cadastrar_ingrediente():
     dados = carregar()
+    ingredientes = dados["ingredientes"]
 
     nome = input('Nome do ingrediente: ')
     unidade = input('Unidade de medida (g, ml, un): ')
@@ -230,8 +229,8 @@ def cadastrar_ingrediente():
         return
 
     novo_id = 1
-    if dados["ingredientes"]:
-        novo_id = dados["ingredientes"][-1]["id"] + 1
+    if ingredientes:
+        novo_id = len(ingredientes) + 1
 
     ingrediente = {
         "id": novo_id,
@@ -240,7 +239,7 @@ def cadastrar_ingrediente():
         "custo_unitario": round(custo, 2)
     }
 
-    dados["ingredientes"].append(ingrediente)
+    ingredientes.append(ingrediente)
     salvar(dados)
 
     print('Ingrediente cadastrado com sucesso!\n')
@@ -265,46 +264,48 @@ def listar_ingredientes():
 
 def ler_ingredientes_id():
     dados = carregar()
+    ingredientes = dados["ingredientes"]
+
     try:
         id_busca = int(input('Digite o ID do ingrediente: '))
     except ValueError:
         print("Erro: ID deve ser um número inteiro!")
         return
 
-    for ing in dados["ingredientes"]:
+    for ing in ingredientes:
         if ing["id"] == id_busca:
             print('Ingrediente:')
             print(f'ID: {ing["id"]} | Nome: {ing["nome"]} | Unidade de medida: {ing["unidade_medida"]} | Custo unitario: R${ing["custo_unitario"]}')
-            if not ing["ingredientes"]:
-                print("Sem ingrediente com esse ID listado!")
+            return
 
     print('Erro: ID não encontrado.')
 
 def editar_ingrediente():
     dados = carregar()
-
     try:
-        id_busca = int(input('Digite o ID do ingrediente a editar: '))
+        id_busca = int(input('ID do ingrediente a editar: '))
     except ValueError:
         print('Erro: ID inválido.')
         return
 
     for ing in dados["ingredientes"]:
         if ing["id"] == id_busca:
-            ing["nome"] = input('Novo nome: ')
-            ing["unidade_medida"] = input('Nova unidade de medida: ')
-            try:
-                ing["custo_unitario"] = round(
-                    float(input('Novo custo unitário: ')), 2
-                )
-            except ValueError:
-                print('Erro: custo inválido.')
-                return
+            print(f"Editando: {ing['nome']}")
+            nome = input('Novo nome (vazio para manter): ').strip()
+            unid = input('Nova unidade (vazio para manter): ').strip()
+            custo = input('Novo custo (vazio para manter): ').strip()
+
+            if nome: ing["nome"] = nome
+            if unid: ing["unidade_medida"] = unid
+            if custo:
+                try:
+                    ing["custo_unitario"] = round(float(custo), 2)
+                except ValueError:
+                    print("Custo inválido! Mantendo o anterior.")
 
             salvar(dados)
-            print('Ingrediente atualizado com sucesso!\n')
+            print('Ingrediente atualizado com sucesso!')
             return
-
     print('Erro: ingrediente não encontrado.')
 
 def deletar_ingrediente():

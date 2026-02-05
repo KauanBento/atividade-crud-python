@@ -45,6 +45,34 @@
             ],
             "modo_preparo": "Grelha o hambúrguer, adiciona o queijo e finaliza com óleo.",
             "preco_venda": 18.5
+        },
+        {
+            "id": 2,
+            "nome": "Strong off",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 4,
+                    "quantidade": 600
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 20
+                }
+            ],
+            "modo_preparo": "MISTURA TUDO",
+            "preco_venda": 99.0
+        },
+        {
+            "id": 3,
+            "nome": "Azeitona",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 2,
+                    "quantidade": 520
+                }
+            ],
+            "modo_preparo": "Azeitona com queijo",
+            "preco_venda": 65.0
         }
     ]
 }
