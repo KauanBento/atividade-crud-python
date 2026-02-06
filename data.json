@@ -2,33 +2,75 @@
     "ingredientes": [
         {
             "id": 1,
-            "nome": "Pão",
+            "nome": "Pão de hambúrguer",
             "unidade_medida": "un",
-            "custo_unitario": 1.5
+            "custo_unitario": 1.35
         },
         {
             "id": 2,
-            "nome": "Queijo",
+            "nome": "Hambúrguer bovino",
             "unidade_medida": "g",
-            "custo_unitario": 0.02
+            "custo_unitario": 0.038
         },
         {
             "id": 3,
-            "nome": "Óleo",
-            "unidade_medida": "ml",
-            "custo_unitario": 0.01
+            "nome": "Queijo",
+            "unidade_medida": "g",
+            "custo_unitario": 0.026
         },
         {
             "id": 4,
-            "nome": "Frango",
+            "nome": "Presunto",
             "unidade_medida": "g",
-            "custo_unitario": 0.02
+            "custo_unitario": 0.024
+        },
+        {
+            "id": 5,
+            "nome": "Óleo",
+            "unidade_medida": "ml",
+            "custo_unitario": 0.012
+        },
+        {
+            "id": 6,
+            "nome": "Ovo",
+            "unidade_medida": "un",
+            "custo_unitario": 1.0
+        },
+        {
+            "id": 7,
+            "nome": "Frango grelhado",
+            "unidade_medida": "g",
+            "custo_unitario": 0.032
+        },
+        {
+            "id": 8,
+            "nome": "Tomate",
+            "unidade_medida": "g",
+            "custo_unitario": 0.009
+        },
+        {
+            "id": 9,
+            "nome": "Alface",
+            "unidade_medida": "g",
+            "custo_unitario": 0.006
+        },
+        {
+            "id": 10,
+            "nome": "Cebola",
+            "unidade_medida": "g",
+            "custo_unitario": 0.007
+        },
+        {
+            "id": 11,
+            "nome": "Bacon",
+            "unidade_medida": "g",
+            "custo_unitario": 0.045
         }
     ],
     "receitas": [
         {
             "id": 1,
-            "nome": "Hambúrguer",
+            "nome": "Hambúrguer Simples",
             "ingredientes": [
                 {
                     "id_ingrediente": 1,
@@ -36,43 +78,199 @@
                 },
                 {
                     "id_ingrediente": 2,
-                    "quantidade": 50
+                    "quantidade": 120
                 },
                 {
-                    "id_ingrediente": 3,
+                    "id_ingrediente": 5,
                     "quantidade": 10
                 }
             ],
-            "modo_preparo": "Grelha o hambúrguer, adiciona o queijo e finaliza com óleo.",
-            "preco_venda": 18.5
+            "modo_preparo": "Grelhe o hambúrguer no óleo e monte no pão.",
+            "preco_venda": 18.0
         },
         {
             "id": 2,
-            "nome": "Strong off",
+            "nome": "X-Burguer",
             "ingredientes": [
                 {
-                    "id_ingrediente": 4,
-                    "quantidade": 600
+                    "id_ingrediente": 1,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 2,
+                    "quantidade": 120
                 },
                 {
                     "id_ingrediente": 3,
-                    "quantidade": 20
+                    "quantidade": 40
+                },
+                {
+                    "id_ingrediente": 5,
+                    "quantidade": 10
                 }
             ],
-            "modo_preparo": "MISTURA TUDO",
-            "preco_venda": 99.0
+            "modo_preparo": "Grelhe o hambúrguer, derreta o queijo e monte no pão.",
+            "preco_venda": 22.0
         },
         {
             "id": 3,
-            "nome": "Azeitona",
+            "nome": "Misto Quente",
             "ingredientes": [
                 {
-                    "id_ingrediente": 2,
-                    "quantidade": 520
+                    "id_ingrediente": 1,
+                    "quantidade": 2
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 30
+                },
+                {
+                    "id_ingrediente": 4,
+                    "quantidade": 30
                 }
             ],
-            "modo_preparo": "Azeitona com queijo",
-            "preco_venda": 65.0
+            "modo_preparo": "Monte o sanduíche e toste até dourar.",
+            "preco_venda": 10.0
+        },
+        {
+            "id": 4,
+            "nome": "X-egg",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 1,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 2,
+                    "quantidade": 120
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 40
+                },
+                {
+                    "id_ingrediente": 6,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 5,
+                    "quantidade": 1
+                }
+            ],
+            "modo_preparo": "Grelhe o hambúrguer, frite o ovo, derreta o queijo e monte tudo no pão.",
+            "preco_venda": 25.0
+        },
+        {
+            "id": 5,
+            "nome": "X-Bacon",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 1,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 2,
+                    "quantidade": 150
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 45
+                },
+                {
+                    "id_ingrediente": 11,
+                    "quantidade": 40
+                },
+                {
+                    "id_ingrediente": 5,
+                    "quantidade": 12
+                }
+            ],
+            "modo_preparo": "Grelhe o hambúrguer e o bacon, derreta o queijo e monte o lanche no pão.",
+            "preco_venda": 29.90
+        },
+        {
+            "id": 7,
+            "nome": "X-Frango Salada",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 1,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 7,
+                    "quantidade": 160
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 40
+                },
+                {
+                    "id_ingrediente": 8,
+                    "quantidade": 30
+                },
+                {
+                    "id_ingrediente": 9,
+                    "quantidade": 15
+                },
+                {
+                    "id_ingrediente": 10,
+                    "quantidade": 20
+                },
+                {
+                    "id_ingrediente": 5,
+                    "quantidade": 12
+                }
+            ],
+            "modo_preparo": "Grelhe o frango, derreta o queijo e monte com os vegetais no pão.",
+            "preco_venda": 27.90
+        },
+        {
+            "id": 8,
+            "nome": "X-Tudo",
+            "ingredientes": [
+                {
+                    "id_ingrediente": 1,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 2,
+                    "quantidade": 150
+                },
+                {
+                    "id_ingrediente": 7,
+                    "quantidade": 120
+                },
+                {
+                    "id_ingrediente": 3,
+                    "quantidade": 50
+                },
+                {
+                    "id_ingrediente": 11,
+                    "quantidade": 40
+                },
+                {
+                    "id_ingrediente": 6,
+                    "quantidade": 1
+                },
+                {
+                    "id_ingrediente": 8,
+                    "quantidade": 30
+                },
+                {
+                    "id_ingrediente": 9,
+                    "quantidade": 15
+                },
+                {
+                    "id_ingrediente": 10,
+                    "quantidade": 20
+                },
+                {
+                    "id_ingrediente": 5,
+                    "quantidade": 18
+                }
+            ],
+            "modo_preparo": "Prepare as carnes e o bacon, frite o ovo, derreta o queijo e monte com os vegetais.",
+            "preco_venda": 39.90
         }
     ]
 }

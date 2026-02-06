@@ -1,0 +1,85 @@
+================================================================================
+DOCUMENTAÇÃO - SISTEMA DE GERENCIAMENTO DE RESTAURANTE
+================================================================================
+
+1. TEMA DA APLICAÇÃO
+   Sistema de Gerenciamento de Restaurante (Receitas e Ingredientes)
+
+2. O QUE O SISTEMA FAZ
+   
+   O sistema permite gerenciar um restaurante através de 2 módulos principais:
+   
+   A. Módulo de Receitas:
+      - Cadastrar receitas com nome, modo de preparo e preço de venda
+      - Associar ingredientes às receitas com quantidades específicas
+      - Listar todas as receitas cadastradas com cálculo automático de lucro
+      - Visualizar uma receita específica por ID com análise completa
+      - Editar nome, preparo, preço e ingredientes de receitas existentes
+      - Remover receitas do sistema
+      - Calcular automaticamente lucro (preço - custo dos ingredientes)
+   
+   B. Módulo de Ingredientes:
+      - Cadastrar ingredientes com nome, unidade de medida e custo unitário
+      - Listar todos os ingredientes disponíveis
+      - Visualizar um ingrediente específico por ID
+      - Editar nome, unidade e custo de ingredientes
+      - Remover ingredientes (com proteção para ingredientes em uso)
+
+3. COMO O CRUD FOI APLICADO
+
+   A. CREATE (Criar):
+      - criar_receita(): Novo registro de receita com ID automático
+      - cadastrar_ingrediente(): Novo registro de ingrediente com ID automático
+      Validações: campos obrigatórios, valores numéricos válidos, sem negativos
+   
+   B. READ (Ler):
+      - listar_receitas(): Exibe todas as receitas com cálculo automático de lucro
+      - listar_ingredientes(): Exibe todos os ingredientes
+      - ler_receita_id(): Busca e exibe uma receita específica por ID com análise de custos
+      - ler_ingredientes_id(): Busca e exibe um ingrediente específico por ID
+      Tratamento: mensagem de erro se ID não existir
+   
+   C. UPDATE (Atualizar):
+      - atualizar_receita(): Modifica nome, modo de preparo, preço e ingredientes
+      - editar_ingrediente(): Modifica nome, unidade e custo
+      Validações: rejeita valores negativos, mantém anteriores se inválidos
+   
+   D. DELETE (Deletar):
+      - deletar_receita(): Remove uma receita pelo ID
+      - deletar_ingrediente(): Remove ingrediente (protege se estiver em uso)
+      Tratamento: avisa se ID não encontrado
+
+4. ESTRUTURA DE DADOS
+
+   Banco de Dados JSON (data.json):
+   {
+       "receitas": [
+           {
+               "id": 1,
+               "nome": "...",
+               "ingredientes": [
+                   {"id_ingrediente": X, "quantidade": Y}
+               ],
+               "modo_preparo": "...",
+               "preco_venda": 0.00
+           }
+       ],
+       "ingredientes": [
+           {
+               "id": 1,
+               "nome": "...",
+               "unidade_medida": "...",
+               "custo_unitario": 0.00
+           }
+       ]
+   }
+
+5. FUNCIONALIDADES DE ERRO
+
+   - Validação de ID: Rejeita IDs não encontrados
+   - Validação numérica: Trata valores negativos e não numéricos
+   - Campos obrigatórios: Verifica se nome e descrição estão vazios
+   - Proteção de dados: Impede remover ingredientes em uso em receitas
+   - Armazenamento: Salva automaticamente em JSON após cada operação
+
+================================================================================
